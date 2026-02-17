@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contact | FORGED</title>
+    <meta name="description" content="Get in touch with Forged. Custom orders, wholesale inquiries, sponsorships, and frequently asked questions."/>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1337",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <!-- Snipcart CSS -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css"/>
+</head>
+<body class="font-display bg-background-dark text-white overflow-x-hidden antialiased">
+
+    <!-- ============================
+         PAINT SPLATTER PARTICLES
+         ============================ -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-10">
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+    </div>
+
+    <!-- ============================
+         HEADER / NAV
+         ============================ -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 w-full px-6 py-4 md:px-12 flex items-center justify-between transition-all duration-300">
+        <!-- Logo -->
+        <a href="index.html" class="flex flex-col items-start">
+            <h1 class="text-2xl md:text-3xl font-bold tracking-[0.2em] text-metallic uppercase">FORGED</h1>
+            <div class="h-[1px] w-16 bg-gradient-to-r from-primary to-transparent mt-1"></div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a href="shop.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Shop</a>
+            <a href="drops.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Drops</a>
+            <a href="about.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">About</a>
+            <a href="contact.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Contact</a>
+        </nav>
+
+        <!-- Cart + Mobile Toggle -->
+        <div class="flex items-center gap-4">
+            <!-- Cart Button -->
+            <button class="snipcart-checkout relative group flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-300">
+                <span class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors duration-300">shopping_bag</span>
+                <span id="cart-count" class="snipcart-items-count absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-5 h-5 rounded-full items-center justify-center hidden">0</span>
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden group flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-300">
+                <span class="material-symbols-outlined text-white text-3xl group-hover:text-primary transition-colors duration-300">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-background-dark/98 backdrop-blur-lg flex flex-col items-center justify-center gap-8">
+        <button id="menu-close" class="absolute top-6 right-6">
+            <span class="material-symbols-outlined text-white text-3xl hover:text-primary transition-colors">close</span>
+        </button>
+        <a href="index.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Home</a>
+        <a href="shop.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Shop</a>
+        <a href="drops.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Drops</a>
+        <a href="about.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">About</a>
+        <a href="contact.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Contact</a>
+    </div>
+
+    <!-- ============================
+         PAGE BANNER
+         ============================ -->
+    <section class="page-banner">
+        <!-- Background -->
+        <div class="hero-overlay">
+            <div class="absolute inset-0 bg-background-dark"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-background-dark/40 to-background-dark"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,19,55,0.08)_0%,transparent_70%)]"></div>
+        </div>
+
+        <!-- Banner Content -->
+        <div class="relative z-20 flex flex-col items-center text-center px-6 mt-20">
+            <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4 fade-in-up">Get In Touch</span>
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[0.15em] text-metallic uppercase fade-in-up">Contact Us</h2>
+            <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-6 fade-in-up"></div>
+        </div>
+    </section>
+
+    <!-- ============================
+         CONTACT SECTION
+         ============================ -->
+    <section class="relative z-10 w-full bg-background-dark py-20 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+
+                <!-- Left Column: Contact Form -->
+                <div class="fade-in-up">
+                    <h3 class="text-2xl font-bold text-white tracking-tight mb-2">Send Us A Message</h3>
+                    <p class="text-white/50 text-sm mb-8">Have a question or want to work with us? Fill out the form below and we'll get back to you.</p>
+
+                    <form action="#" method="POST" class="space-y-5">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-white/60 text-xs uppercase tracking-widest font-medium mb-2">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required
+                                class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/30 focus:border-primary/50 focus:outline-none focus:ring-0 transition-colors duration-300"/>
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-white/60 text-xs uppercase tracking-widest font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required
+                                class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/30 focus:border-primary/50 focus:outline-none focus:ring-0 transition-colors duration-300"/>
+                        </div>
+
+                        <!-- Subject -->
+                        <div>
+                            <label for="subject" class="block text-white/60 text-xs uppercase tracking-widest font-medium mb-2">Subject</label>
+                            <select id="subject" name="subject" required
+                                class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary/50 focus:outline-none focus:ring-0 transition-colors duration-300 appearance-none">
+                                <option value="" disabled selected class="bg-background-dark text-white/30">Select a subject</option>
+                                <option value="general" class="bg-background-dark text-white">General Inquiry</option>
+                                <option value="custom" class="bg-background-dark text-white">Custom Order</option>
+                                <option value="wholesale" class="bg-background-dark text-white">Wholesale</option>
+                                <option value="sponsorship" class="bg-background-dark text-white">Sponsorship</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-white/60 text-xs uppercase tracking-widest font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us what's on your mind..." required
+                                class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/30 focus:border-primary/50 focus:outline-none focus:ring-0 transition-colors duration-300 resize-vertical"></textarea>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn-glow bg-primary/90 hover:bg-primary text-white font-bold py-3 px-10 rounded-lg tracking-widest uppercase text-xs shadow-[0_0_20px_rgba(236,19,55,0.4)] hover:shadow-[0_0_30px_rgba(236,19,55,0.6)] transition-all duration-300 transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Contact Info -->
+                <div class="fade-in-up">
+                    <div class="lg:pl-8">
+                        <!-- Email -->
+                        <div class="mb-10">
+                            <h3 class="text-2xl font-bold text-white tracking-tight mb-6">Contact Info</h3>
+                            <div class="flex items-start gap-4 mb-6">
+                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">mail</span>
+                                <div>
+                                    <p class="text-white/60 text-xs uppercase tracking-widest font-medium mb-1">Email</p>
+                                    <a href="mailto:info@forgedheadbands.com" class="text-white hover:text-primary transition-colors duration-300 text-sm">info@forgedheadbands.com</a>
+                                </div>
+                            </div>
+
+                            <!-- Response Time -->
+                            <div class="flex items-start gap-4 mb-6">
+                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">schedule</span>
+                                <div>
+                                    <p class="text-white/60 text-xs uppercase tracking-widest font-medium mb-1">Response Time</p>
+                                    <p class="text-white/80 text-sm">We typically respond within 24 hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Business Hours -->
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-primary text-2xl mt-0.5">event_available</span>
+                                <div>
+                                    <p class="text-white/60 text-xs uppercase tracking-widest font-medium mb-1">Business Hours</p>
+                                    <p class="text-white/80 text-sm">Monday &ndash; Friday, 9am &ndash; 5pm EST</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="mb-10">
+                            <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Follow Us</h4>
+                            <div class="flex gap-4">
+                                <!-- Instagram -->
+                                <a href="#" class="group flex items-center justify-center w-11 h-11 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300">
+                                    <svg class="w-5 h-5 text-white/50 group-hover:text-primary transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </a>
+                                <!-- Twitter / X -->
+                                <a href="#" class="group flex items-center justify-center w-11 h-11 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300">
+                                    <svg class="w-5 h-5 text-white/50 group-hover:text-primary transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                                </a>
+                                <!-- YouTube -->
+                                <a href="#" class="group flex items-center justify-center w-11 h-11 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300">
+                                    <svg class="w-5 h-5 text-white/50 group-hover:text-primary transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                                </a>
+                                <!-- TikTok -->
+                                <a href="#" class="group flex items-center justify-center w-11 h-11 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300">
+                                    <svg class="w-5 h-5 text-white/50 group-hover:text-primary transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick Note -->
+                        <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="material-symbols-outlined text-primary text-xl">info</span>
+                                <h4 class="text-sm font-bold tracking-widest uppercase text-white/70">Quick Note</h4>
+                            </div>
+                            <p class="text-white/50 text-sm leading-relaxed">For custom orders and wholesale inquiries, please include as much detail as possible (quantities, designs, deadlines) so we can get you an accurate quote faster.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         FAQ SECTION
+         ============================ -->
+    <section id="faq" class="relative z-10 w-full bg-background-dark py-20 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium">Support</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-3">Frequently Asked Questions</h2>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-4 mx-auto"></div>
+            </div>
+
+            <div class="accordion-group space-y-3 fade-in-up">
+
+                <!-- FAQ 1 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden">
+                    <button class="accordion-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors duration-300">
+                        <span class="text-white text-sm font-medium pr-4">How long does shipping take?</span>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 text-xl flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-5 pt-1">
+                            <p class="text-white/50 text-sm leading-relaxed">Domestic orders typically ship within 5&ndash;7 business days. International orders take approximately 10&ndash;14 business days depending on your location and customs processing. All orders include tracking information sent to your email once shipped.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden">
+                    <button class="accordion-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors duration-300">
+                        <span class="text-white text-sm font-medium pr-4">Do you offer custom designs?</span>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 text-xl flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-5 pt-1">
+                            <p class="text-white/50 text-sm leading-relaxed">Yes! Custom designs are at the heart of what we do. Whether you need team headbands, event-specific designs, or a completely unique personal creation, we've got you covered. Use the contact form above and select "Custom Order" as the subject, or email us directly with your design ideas, color preferences, and quantity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden">
+                    <button class="accordion-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors duration-300">
+                        <span class="text-white text-sm font-medium pr-4">What sizes do you offer?</span>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 text-xl flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-5 pt-1">
+                            <p class="text-white/50 text-sm leading-relaxed">We offer four sizes to ensure the perfect fit: <strong class="text-white/70">S</strong> (20&ndash;21&Prime; / 51&ndash;53cm), <strong class="text-white/70">M</strong> (21&ndash;22&Prime; / 53&ndash;56cm), <strong class="text-white/70">L</strong> (22&ndash;23&Prime; / 56&ndash;58cm), and <strong class="text-white/70">XL</strong> (23&ndash;24&Prime; / 58&ndash;61cm). Measure around your head just above the ears for the most accurate fit. If you're between sizes, we recommend going up.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden">
+                    <button class="accordion-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors duration-300">
+                        <span class="text-white text-sm font-medium pr-4">What's your return policy?</span>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 text-xl flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-5 pt-1">
+                            <p class="text-white/50 text-sm leading-relaxed">We offer a 30-day return policy for unworn, unused items in their original packaging. Simply contact us with your order number and reason for return, and we'll provide you with a return shipping label. Refunds are processed within 5&ndash;7 business days after we receive the item. Please note that custom orders are final sale.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden">
+                    <button class="accordion-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors duration-300">
+                        <span class="text-white text-sm font-medium pr-4">Are your headbands machine washable?</span>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 text-xl flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-5 pt-1">
+                            <p class="text-white/50 text-sm leading-relaxed">Yes, all Forged headbands are machine washable. We recommend washing on a cold water cycle with like colors and air drying to maintain the fabric quality and print vibrancy. Avoid bleach and high-heat drying. With proper care, your headband will stay battle-ready for the long haul.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden">
+                    <button class="accordion-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors duration-300">
+                        <span class="text-white text-sm font-medium pr-4">Do you sponsor teams?</span>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 text-xl flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-5 pt-1">
+                            <p class="text-white/50 text-sm leading-relaxed">Yes, we actively sponsor paintball teams at various levels of competition. We offer product sponsorships, co-branded gear, and promotional partnerships. Use the contact form above and select "Sponsorship" as the subject. Tell us about your team, your competition level, social media presence, and what you're looking for in a sponsorship.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden">
+                    <button class="accordion-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors duration-300">
+                        <span class="text-white text-sm font-medium pr-4">Can I track my order?</span>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 text-xl flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-5 pt-1">
+                            <p class="text-white/50 text-sm leading-relaxed">Absolutely. Once your order ships, you'll receive an email with a tracking number and a link to follow your package in real time. If you haven't received a tracking email within 3 business days of ordering, check your spam folder or contact us and we'll get it sorted.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="border border-white/10 rounded-xl overflow-hidden">
+                    <button class="accordion-toggle w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors duration-300">
+                        <span class="text-white text-sm font-medium pr-4">Do you offer wholesale pricing?</span>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 text-xl flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="px-6 pb-5 pt-1">
+                            <p class="text-white/50 text-sm leading-relaxed">Yes, we offer wholesale pricing for shops, teams, and event organizers. Minimum order quantities and pricing tiers vary depending on the product and customization level. Get in touch via the contact form and select "Wholesale" as the subject, or email us directly at <a href="mailto:info@forgedheadbands.com" class="text-primary hover:underline">info@forgedheadbands.com</a> with your requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         FOOTER
+         ============================ -->
+    <footer class="relative z-10 w-full bg-black/30 border-t border-white/5 pt-16 pb-8 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-bold tracking-[0.2em] text-metallic uppercase mb-3">FORGED</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Forged For The Field. Premium custom paintball headbands for the modern warrior.</p>
+                </div>
+
+                <!-- Shop Links -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="shop.html" class="text-white/40 hover:text-primary text-sm transition-colors">All Products</a></li>
+                        <li><a href="shop.html#headbands" class="text-white/40 hover:text-primary text-sm transition-colors">Headbands</a></li>
+                        <li><a href="shop.html#accessories" class="text-white/40 hover:text-primary text-sm transition-colors">Accessories</a></li>
+                        <li><a href="drops.html" class="text-white/40 hover:text-primary text-sm transition-colors">Limited Drops</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-white/40 hover:text-primary text-sm transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-white/40 hover:text-primary text-sm transition-colors">Contact</a></li>
+                        <li><a href="contact.html#faq" class="text-white/40 hover:text-primary text-sm transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Stay Posted</h4>
+                    <p class="text-white/40 text-sm mb-3">Get drop alerts and exclusive deals.</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Email" class="newsletter-input flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm placeholder-white/30 focus:border-primary/50"/>
+                        <button class="bg-primary hover:bg-primary/90 text-white font-bold px-4 py-2 rounded-lg text-xs tracking-wider uppercase transition-colors">Go</button>
+                    </div>
+                    <!-- Social Icons -->
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/30 text-xs">&copy; 2026 Forged. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Terms of Service</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Decorative Elements -->
+    <div class="side-decor side-decor-left">
+        <div class="w-[1px] h-24 bg-white/10"></div>
+        <span class="text-xs text-white/20" style="writing-mode: vertical-rl; letter-spacing: 0.2em;">FORGED 2026</span>
+    </div>
+    <div class="side-decor side-decor-right">
+        <div class="w-1 h-1 bg-primary rounded-full"></div>
+        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+    </div>
+
+    <!-- Snipcart -->
+    <div hidden id="snipcart" data-api-key="YOUR_API_KEY" data-config-modal-style="side"></div>
+    <script async src="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

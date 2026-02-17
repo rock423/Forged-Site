@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Limited Drops | FORGED</title>
+    <meta name="description" content="Limited edition paintball headbands from Forged. Once they're gone, they're gone. Exclusive drops, handcrafted for the field."/>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1337",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <!-- Snipcart CSS -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css"/>
+</head>
+<body class="font-display bg-background-dark text-white overflow-x-hidden antialiased">
+
+    <!-- ============================
+         PAINT SPLATTER PARTICLES
+         ============================ -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-10">
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+    </div>
+
+    <!-- ============================
+         HEADER / NAV
+         ============================ -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 w-full px-6 py-4 md:px-12 flex items-center justify-between transition-all duration-300">
+        <!-- Logo -->
+        <a href="index.html" class="flex flex-col items-start">
+            <h1 class="text-2xl md:text-3xl font-bold tracking-[0.2em] text-metallic uppercase">FORGED</h1>
+            <div class="h-[1px] w-16 bg-gradient-to-r from-primary to-transparent mt-1"></div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a href="shop.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Shop</a>
+            <a href="drops.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Drops</a>
+            <a href="about.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">About</a>
+            <a href="contact.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Contact</a>
+        </nav>
+
+        <!-- Cart + Mobile Toggle -->
+        <div class="flex items-center gap-4">
+            <!-- Cart Button -->
+            <button class="snipcart-checkout relative group flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-300">
+                <span class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors duration-300">shopping_bag</span>
+                <span id="cart-count" class="snipcart-items-count absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-5 h-5 rounded-full items-center justify-center hidden">0</span>
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden group flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-300">
+                <span class="material-symbols-outlined text-white text-3xl group-hover:text-primary transition-colors duration-300">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-background-dark/98 backdrop-blur-lg flex flex-col items-center justify-center gap-8">
+        <button id="menu-close" class="absolute top-6 right-6">
+            <span class="material-symbols-outlined text-white text-3xl hover:text-primary transition-colors">close</span>
+        </button>
+        <a href="index.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Home</a>
+        <a href="shop.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Shop</a>
+        <a href="drops.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Drops</a>
+        <a href="about.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">About</a>
+        <a href="contact.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Contact</a>
+    </div>
+
+    <!-- ============================
+         PAGE BANNER
+         ============================ -->
+    <section class="page-banner">
+        <!-- Background -->
+        <div class="hero-overlay">
+            <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=1920&q=80'); background-position: center 40%;"></div>
+            <div class="hero-gradient"></div>
+            <div class="hero-fog"></div>
+        </div>
+
+        <!-- Banner Content -->
+        <div class="relative z-20 flex flex-col items-center text-center px-6 mt-16">
+            <span class="text-primary text-xs tracking-[0.5em] uppercase font-medium mb-4 fade-in-up">Exclusive Releases</span>
+            <h2 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-[0.15em] text-metallic uppercase drop-shadow-xl fade-in-up">
+                Limited Drops
+            </h2>
+            <p class="text-lg text-white/50 font-light mt-4 tracking-widest uppercase fade-in-up">
+                Once they're gone, they're gone
+            </p>
+            <div class="h-[1px] w-32 bg-gradient-to-r from-transparent via-primary to-transparent mt-6 fade-in-up"></div>
+        </div>
+    </section>
+
+    <!-- ============================
+         ACTIVE DROP - RONIN EDITION
+         ============================ -->
+    <section class="relative z-10 w-full bg-background-dark py-20 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-6 fade-in-up">
+                <span class="badge-limited bg-primary text-white text-[10px] tracking-widest uppercase font-bold px-4 py-1.5 rounded-full inline-block">Live Now</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Product Image -->
+                <div class="relative group fade-in-up">
+                    <div class="relative aspect-square overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=800&q=80'); background-position: center;"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                    <!-- Decorative Corner Accents -->
+                    <div class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-primary/50"></div>
+                    <div class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-primary/50"></div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="flex flex-col gap-6 fade-in-up">
+                    <div>
+                        <span class="text-primary/80 text-xs tracking-[0.4em] uppercase font-medium">Current Drop</span>
+                        <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mt-2">Ronin Edition</h2>
+                        <p class="text-white/50 text-sm mt-3 leading-relaxed max-w-md">
+                            Forged in the spirit of the lone warrior. Metallic accents on premium moisture-wicking fabric. Each headband individually numbered. Only 50 units will ever exist.
+                        </p>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="flex items-baseline gap-3">
+                        <span class="text-3xl font-bold text-white">$49.99</span>
+                        <span class="text-white/30 text-sm line-through">$65.00</span>
+                    </div>
+
+                    <!-- Stock Indicator -->
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-white/60 text-sm font-medium">Only <span class="text-primary font-bold">50 left</span></span>
+                            <span class="text-white/30 text-xs">50 / 50 remaining</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-primary to-red-400 rounded-full transition-all duration-1000" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div>
+                        <span class="text-white/40 text-xs tracking-widest uppercase mb-3 block">Drop ends in</span>
+                        <div class="flex items-center gap-3 md:gap-4">
+                            <div class="flex flex-col items-center bg-white/5 border border-white/10 rounded-lg px-4 py-3 min-w-[4rem]">
+                                <span id="countdown-days" class="countdown-digit text-2xl md:text-3xl font-bold text-white">00</span>
+                                <span class="text-white/40 text-[10px] uppercase tracking-widest mt-0.5">Days</span>
+                            </div>
+                            <span class="text-white/20 text-xl font-light">:</span>
+                            <div class="flex flex-col items-center bg-white/5 border border-white/10 rounded-lg px-4 py-3 min-w-[4rem]">
+                                <span id="countdown-hours" class="countdown-digit text-2xl md:text-3xl font-bold text-white">00</span>
+                                <span class="text-white/40 text-[10px] uppercase tracking-widest mt-0.5">Hrs</span>
+                            </div>
+                            <span class="text-white/20 text-xl font-light">:</span>
+                            <div class="flex flex-col items-center bg-white/5 border border-white/10 rounded-lg px-4 py-3 min-w-[4rem]">
+                                <span id="countdown-mins" class="countdown-digit text-2xl md:text-3xl font-bold text-white">00</span>
+                                <span class="text-white/40 text-[10px] uppercase tracking-widest mt-0.5">Min</span>
+                            </div>
+                            <span class="text-white/20 text-xl font-light">:</span>
+                            <div class="flex flex-col items-center bg-white/5 border border-white/10 rounded-lg px-4 py-3 min-w-[4rem]">
+                                <span id="countdown-secs" class="countdown-digit text-2xl md:text-3xl font-bold text-white">00</span>
+                                <span class="text-white/40 text-[10px] uppercase tracking-widest mt-0.5">Sec</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart -->
+                    <div class="flex flex-col sm:flex-row items-start gap-3 mt-2">
+                        <button class="snipcart-add-item btn-glow bg-primary hover:bg-primary/90 text-white font-bold py-3 px-10 rounded-lg tracking-widest uppercase text-xs transition-all duration-300"
+                            data-item-id="headband-ronin"
+                            data-item-name="Ronin Edition"
+                            data-item-price="49.99"
+                            data-item-url="/drops.html"
+                            data-item-image="/images/headband-ronin.jpg"
+                            data-item-description="Limited Edition Premium Paintball Headband - Metallic Accents"
+                            data-item-custom1-name="Size"
+                            data-item-custom1-options="S|M|L|XL"
+                            data-item-max-quantity="1">
+                            Secure Yours
+                        </button>
+                        <span class="text-white/30 text-xs self-center">Limit 1 per customer</span>
+                    </div>
+
+                    <!-- Notify Me -->
+                    <div class="mt-4 pt-6 border-t border-white/5">
+                        <p class="text-white/50 text-sm mb-3">Get notified about future drops</p>
+                        <div class="flex flex-col sm:flex-row items-stretch gap-3 max-w-md">
+                            <input type="email" placeholder="Enter your email" class="newsletter-input flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/30 focus:border-primary/50"/>
+                            <button class="btn-glow bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/30 text-white font-bold py-3 px-6 rounded-lg tracking-widest uppercase text-xs transition-all duration-300 whitespace-nowrap">
+                                Notify Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         UPCOMING DROPS - COMING SOON
+         ============================ -->
+    <section class="relative z-10 w-full py-20 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium">On The Horizon</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-3">Coming Soon</h2>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-4 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+                <!-- Upcoming Drop 1 -->
+                <div class="product-card group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <div class="product-image absolute inset-0">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1557862921-37829c790f19?w=600&q=80'); background-position: center; filter: blur(4px) brightness(0.4);"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30"></div>
+                    <!-- Coming Soon Label -->
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-white/10 backdrop-blur-sm text-white/80 text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded-full border border-white/10">Coming Soon</span>
+                    </div>
+                    <!-- Silhouette Icon -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white/10 text-[80px]">visibility_off</span>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-primary/60 text-xs tracking-widest uppercase mb-1 block">March 2026</span>
+                        <h3 class="text-xl font-bold text-white/80 mb-1">Shadow Ops Collection</h3>
+                        <p class="text-white/40 text-sm">Details revealed soon</p>
+                    </div>
+                </div>
+
+                <!-- Upcoming Drop 2 -->
+                <div class="product-card group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <div class="product-image absolute inset-0">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80'); background-position: center; filter: blur(4px) brightness(0.4);"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30"></div>
+                    <!-- Coming Soon Label -->
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-white/10 backdrop-blur-sm text-white/80 text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded-full border border-white/10">Coming Soon</span>
+                    </div>
+                    <!-- Silhouette Icon -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white/10 text-[80px]">visibility_off</span>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-primary/60 text-xs tracking-widest uppercase mb-1 block">April 2026</span>
+                        <h3 class="text-xl font-bold text-white/80 mb-1">Venom Series</h3>
+                        <p class="text-white/40 text-sm">Details revealed soon</p>
+                    </div>
+                </div>
+
+                <!-- Upcoming Drop 3 -->
+                <div class="product-card group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <div class="product-image absolute inset-0">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&q=80'); background-position: center; filter: blur(6px) brightness(0.3);"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30"></div>
+                    <!-- Coming Soon Label -->
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-white/10 backdrop-blur-sm text-white/80 text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded-full border border-white/10">Coming Soon</span>
+                    </div>
+                    <!-- Silhouette Icon -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white/10 text-[80px]">lock</span>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-primary/60 text-xs tracking-widest uppercase mb-1 block">May 2026</span>
+                        <h3 class="text-xl font-bold text-white/80 mb-1">???</h3>
+                        <p class="text-white/40 text-sm">Mystery drop</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         PAST DROPS - ARCHIVE
+         ============================ -->
+    <section class="relative z-10 w-full py-20 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-white/30 text-xs tracking-[0.4em] uppercase font-medium">Previously Released</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-3">Archive</h2>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent mt-4 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+                <!-- Past Drop 1: Shogun Series -->
+                <div class="product-card group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <div class="product-image absolute inset-0">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80'); background-position: center; filter: brightness(0.5) saturate(0.3);"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 z-10">
+                        <span class="text-white/30 text-xs tracking-widest uppercase mb-1 block">January 2026</span>
+                        <h3 class="text-xl font-bold text-white/60 mb-1">Shogun Series</h3>
+                        <p class="text-white/30 text-sm">50 units &mdash; $44.99</p>
+                    </div>
+                    <!-- Sold Out Overlay -->
+                    <div class="sold-out-overlay z-20">
+                        <span>Sold Out</span>
+                    </div>
+                </div>
+
+                <!-- Past Drop 2: First Blood Edition -->
+                <div class="product-card group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <div class="product-image absolute inset-0">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1557862921-37829c790f19?w=600&q=80'); background-position: center; filter: brightness(0.5) saturate(0.3);"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 z-10">
+                        <span class="text-white/30 text-xs tracking-widest uppercase mb-1 block">November 2025</span>
+                        <h3 class="text-xl font-bold text-white/60 mb-1">First Blood Edition</h3>
+                        <p class="text-white/30 text-sm">30 units &mdash; $39.99</p>
+                    </div>
+                    <!-- Sold Out Overlay -->
+                    <div class="sold-out-overlay z-20">
+                        <span>Sold Out</span>
+                    </div>
+                </div>
+
+                <!-- Past Drop 3: Genesis Pack -->
+                <div class="product-card group relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <div class="product-image absolute inset-0">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80'); background-position: center; filter: brightness(0.5) saturate(0.3);"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 z-10">
+                        <span class="text-white/30 text-xs tracking-widest uppercase mb-1 block">September 2025</span>
+                        <h3 class="text-xl font-bold text-white/60 mb-1">Genesis Pack</h3>
+                        <p class="text-white/30 text-sm">25 units &mdash; $34.99</p>
+                    </div>
+                    <!-- Sold Out Overlay -->
+                    <div class="sold-out-overlay z-20">
+                        <span>Sold Out</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         FOOTER
+         ============================ -->
+    <footer class="relative z-10 w-full bg-black/30 border-t border-white/5 pt-16 pb-8 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-bold tracking-[0.2em] text-metallic uppercase mb-3">FORGED</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Forged For The Field. Premium custom paintball headbands for the modern warrior.</p>
+                </div>
+
+                <!-- Shop Links -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="shop.html" class="text-white/40 hover:text-primary text-sm transition-colors">All Products</a></li>
+                        <li><a href="shop.html#headbands" class="text-white/40 hover:text-primary text-sm transition-colors">Headbands</a></li>
+                        <li><a href="shop.html#accessories" class="text-white/40 hover:text-primary text-sm transition-colors">Accessories</a></li>
+                        <li><a href="drops.html" class="text-white/40 hover:text-primary text-sm transition-colors">Limited Drops</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-white/40 hover:text-primary text-sm transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-white/40 hover:text-primary text-sm transition-colors">Contact</a></li>
+                        <li><a href="contact.html#faq" class="text-white/40 hover:text-primary text-sm transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Stay Posted</h4>
+                    <p class="text-white/40 text-sm mb-3">Get drop alerts and exclusive deals.</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Email" class="newsletter-input flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm placeholder-white/30 focus:border-primary/50"/>
+                        <button class="bg-primary hover:bg-primary/90 text-white font-bold px-4 py-2 rounded-lg text-xs tracking-wider uppercase transition-colors">Go</button>
+                    </div>
+                    <!-- Social Icons -->
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/30 text-xs">&copy; 2026 Forged. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Terms of Service</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Decorative Elements -->
+    <div class="side-decor side-decor-left">
+        <div class="w-[1px] h-24 bg-white/10"></div>
+        <span class="text-xs text-white/20" style="writing-mode: vertical-rl; letter-spacing: 0.2em;">FORGED 2026</span>
+    </div>
+    <div class="side-decor side-decor-right">
+        <div class="w-1 h-1 bg-primary rounded-full"></div>
+        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+    </div>
+
+    <!-- Snipcart -->
+    <div hidden id="snipcart" data-api-key="YOUR_API_KEY" data-config-modal-style="side"></div>
+    <script async src="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Drops JS -->
+    <script src="js/drops.js"></script>
+</body>
+</html>

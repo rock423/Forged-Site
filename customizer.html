@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Headband Builder | FORGED</title>
+    <meta name="description" content="Design your own custom paintball headband. Choose colors, patterns, and text to create a one-of-a-kind piece."/>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1337",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <!-- Snipcart CSS -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css"/>
+</head>
+<body class="font-display bg-background-dark text-white overflow-x-hidden antialiased">
+
+    <!-- ============================
+         PAINT SPLATTER PARTICLES
+         ============================ -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-10">
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+    </div>
+
+    <!-- ============================
+         SIMPLE HEADER (Not the full nav)
+         ============================ -->
+    <header class="relative z-50 w-full px-6 py-6 md:px-12 flex items-center justify-center">
+        <div class="flex flex-col items-center">
+            <a href="index.html" class="flex flex-col items-center">
+                <h1 class="text-2xl md:text-3xl font-bold tracking-[0.2em] text-metallic uppercase">FORGED</h1>
+                <div class="h-[1px] w-16 bg-gradient-to-r from-transparent via-primary to-transparent mt-1"></div>
+            </a>
+            <a href="shop.html" class="text-xs tracking-widest uppercase text-white/50 hover:text-primary transition-colors duration-300 mt-3">
+                &larr; Back to Shop
+            </a>
+        </div>
+    </header>
+
+    <!-- ============================
+         PAGE TITLE
+         ============================ -->
+    <section class="relative z-10 w-full pt-8 pb-6 px-6 md:px-12">
+        <div class="max-w-5xl mx-auto text-center fade-in-up">
+            <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium">Customizer</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-3">Design Your Headband</h2>
+            <p class="text-white/50 text-sm md:text-base font-light mt-3 tracking-wide">Create a one-of-a-kind piece</p>
+            <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-4 mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- ============================
+         MAIN CONTENT: Two-Column Layout
+         ============================ -->
+    <section class="relative z-10 w-full py-10 px-6 md:px-12">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+
+            <!-- ========== LEFT COLUMN: Canvas Preview ========== -->
+            <div class="fade-in-up">
+                <div id="customizer-preview" class="w-full">
+                    <canvas id="headband-canvas" class="customizer-canvas w-full" width="600" height="300"></canvas>
+                </div>
+                <p class="text-white/30 text-xs text-center mt-3 tracking-wide">Preview is approximate. Final product may vary slightly.</p>
+            </div>
+
+            <!-- ========== RIGHT COLUMN: Controls ========== -->
+            <div class="flex flex-col gap-8 fade-in-up">
+
+                <!-- 1. Base Color -->
+                <div id="color-picker-section">
+                    <h3 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Base Color</h3>
+                    <div class="flex items-center gap-4 mb-4">
+                        <input type="color" id="base-color" value="#ec1337" class="w-12 h-12 rounded-lg border border-white/10 cursor-pointer bg-transparent"/>
+                        <span class="text-white/40 text-xs tracking-wide uppercase">Choose any color</span>
+                    </div>
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <div class="color-swatch w-10 h-10 rounded-full border-2 border-white/20 cursor-pointer hover:border-primary hover:scale-110 transition-all duration-200" style="background-color: #ec1337;" data-color="#ec1337" title="Red"></div>
+                        <div class="color-swatch w-10 h-10 rounded-full border-2 border-white/20 cursor-pointer hover:border-primary hover:scale-110 transition-all duration-200" style="background-color: #111111;" data-color="#111111" title="Black"></div>
+                        <div class="color-swatch w-10 h-10 rounded-full border-2 border-white/20 cursor-pointer hover:border-primary hover:scale-110 transition-all duration-200" style="background-color: #f5f5f5;" data-color="#f5f5f5" title="White"></div>
+                        <div class="color-swatch w-10 h-10 rounded-full border-2 border-white/20 cursor-pointer hover:border-primary hover:scale-110 transition-all duration-200" style="background-color: #1a237e;" data-color="#1a237e" title="Navy"></div>
+                        <div class="color-swatch w-10 h-10 rounded-full border-2 border-white/20 cursor-pointer hover:border-primary hover:scale-110 transition-all duration-200" style="background-color: #1b5e20;" data-color="#1b5e20" title="Forest"></div>
+                        <div class="color-swatch w-10 h-10 rounded-full border-2 border-white/20 cursor-pointer hover:border-primary hover:scale-110 transition-all duration-200" style="background-color: #e65100;" data-color="#e65100" title="Orange"></div>
+                    </div>
+                </div>
+
+                <!-- 2. Pattern -->
+                <div id="pattern-section">
+                    <h3 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Pattern</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button data-pattern="solid" class="pattern-btn bg-white/10 border border-white/10 text-white text-xs tracking-widest uppercase font-medium py-2 px-5 rounded-lg hover:border-primary hover:bg-primary/10 transition-all duration-200">Solid</button>
+                        <button data-pattern="camo" class="pattern-btn bg-white/10 border border-white/10 text-white text-xs tracking-widest uppercase font-medium py-2 px-5 rounded-lg hover:border-primary hover:bg-primary/10 transition-all duration-200">Camo</button>
+                        <button data-pattern="splatter" class="pattern-btn bg-white/10 border border-white/10 text-white text-xs tracking-widest uppercase font-medium py-2 px-5 rounded-lg hover:border-primary hover:bg-primary/10 transition-all duration-200">Splatter</button>
+                        <button data-pattern="gradient" class="pattern-btn bg-white/10 border border-white/10 text-white text-xs tracking-widest uppercase font-medium py-2 px-5 rounded-lg hover:border-primary hover:bg-primary/10 transition-all duration-200">Gradient</button>
+                        <button data-pattern="stripes" class="pattern-btn bg-white/10 border border-white/10 text-white text-xs tracking-widest uppercase font-medium py-2 px-5 rounded-lg hover:border-primary hover:bg-primary/10 transition-all duration-200">Stripes</button>
+                    </div>
+                </div>
+
+                <!-- 3. Text -->
+                <div id="text-section">
+                    <h3 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Text</h3>
+                    <div class="flex flex-col gap-4">
+                        <input type="text" id="custom-text" maxlength="15" placeholder="Your text here" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/30 focus:border-primary/50 focus:outline-none focus:ring-0 transition-colors"/>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="font-select" class="text-white/40 text-xs tracking-wide uppercase block mb-2">Font Style</label>
+                                <select id="font-select" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-primary/50 focus:outline-none focus:ring-0 transition-colors appearance-none cursor-pointer">
+                                    <option value="block">Block</option>
+                                    <option value="script">Script</option>
+                                    <option value="military">Military</option>
+                                    <option value="clean">Clean</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="text-color" class="text-white/40 text-xs tracking-wide uppercase block mb-2">Text Color</label>
+                                <input type="color" id="text-color" value="#ffffff" class="w-full h-[46px] rounded-lg border border-white/10 cursor-pointer bg-transparent"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+                <!-- 4. Add to Cart -->
+                <div class="fade-in-up">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-white/40 text-xs tracking-widest uppercase">Custom Headband</span>
+                        <span class="text-2xl font-bold text-white">$44.99</span>
+                    </div>
+
+                    <button id="add-custom-to-cart" class="snipcart-add-item btn-glow bg-primary hover:bg-primary/90 text-white font-bold py-3 px-10 rounded-lg tracking-widest uppercase text-xs w-full transition-all duration-300"
+                        data-item-id="custom-headband"
+                        data-item-name="Custom Headband"
+                        data-item-price="44.99"
+                        data-item-url="/customizer.html"
+                        data-item-image="/images/custom-headband.jpg"
+                        data-item-description="Custom designed paintball headband"
+                        data-item-custom1-name="Size"
+                        data-item-custom1-options="S|M|L|XL"
+                        data-item-custom2-name="Base Color"
+                        data-item-custom2-value=""
+                        data-item-custom3-name="Pattern"
+                        data-item-custom3-value=""
+                        data-item-custom4-name="Custom Text"
+                        data-item-custom4-value=""
+                        data-item-custom5-name="Font Style"
+                        data-item-custom5-value="">
+                        Add Custom Headband to Cart
+                    </button>
+                </div>
+
+            </div><!-- end right column -->
+
+        </div>
+    </section>
+
+    <!-- ============================
+         SIMPLE FOOTER
+         ============================ -->
+    <footer class="relative z-10 w-full border-t border-white/5 py-8 px-6 md:px-12 mt-10">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="text-white/30 text-xs">&copy; 2026 Forged. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Snipcart -->
+    <div hidden id="snipcart" data-api-key="YOUR_API_KEY" data-config-modal-style="side"></div>
+    <script async src="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Customizer JS -->
+    <script src="js/customizer.js"></script>
+
+</body>
+</html>

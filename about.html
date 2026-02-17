@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Our Story | FORGED</title>
+    <meta name="description" content="The story behind Forged. Born on the paintball field, built for warriors. Learn how competitive players created the ultimate custom headband brand."/>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1337",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <!-- Snipcart CSS -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css"/>
+</head>
+<body class="font-display bg-background-dark text-white overflow-x-hidden antialiased">
+
+    <!-- ============================
+         PAINT SPLATTER PARTICLES
+         ============================ -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-10">
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+    </div>
+
+    <!-- ============================
+         HEADER / NAV
+         ============================ -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 w-full px-6 py-4 md:px-12 flex items-center justify-between transition-all duration-300">
+        <!-- Logo -->
+        <a href="index.html" class="flex flex-col items-start">
+            <h1 class="text-2xl md:text-3xl font-bold tracking-[0.2em] text-metallic uppercase">FORGED</h1>
+            <div class="h-[1px] w-16 bg-gradient-to-r from-primary to-transparent mt-1"></div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a href="shop.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Shop</a>
+            <a href="drops.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Drops</a>
+            <a href="about.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">About</a>
+            <a href="contact.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Contact</a>
+        </nav>
+
+        <!-- Cart + Mobile Toggle -->
+        <div class="flex items-center gap-4">
+            <!-- Cart Button -->
+            <button class="snipcart-checkout relative group flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-300">
+                <span class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors duration-300">shopping_bag</span>
+                <span id="cart-count" class="snipcart-items-count absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-5 h-5 rounded-full items-center justify-center hidden">0</span>
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden group flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-300">
+                <span class="material-symbols-outlined text-white text-3xl group-hover:text-primary transition-colors duration-300">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-background-dark/98 backdrop-blur-lg flex flex-col items-center justify-center gap-8">
+        <button id="menu-close" class="absolute top-6 right-6">
+            <span class="material-symbols-outlined text-white text-3xl hover:text-primary transition-colors">close</span>
+        </button>
+        <a href="index.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Home</a>
+        <a href="shop.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Shop</a>
+        <a href="drops.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Drops</a>
+        <a href="about.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">About</a>
+        <a href="contact.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Contact</a>
+    </div>
+
+    <!-- ============================
+         PAGE BANNER
+         ============================ -->
+    <section class="page-banner">
+        <!-- Background -->
+        <div class="hero-overlay">
+            <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80'); background-position: center 40%;"></div>
+            <div class="hero-gradient"></div>
+            <div class="hero-fog"></div>
+        </div>
+
+        <!-- Banner Content -->
+        <div class="relative z-20 flex flex-col items-center text-center px-6 mt-16">
+            <p class="text-white/50 text-xs tracking-[0.5em] uppercase mb-4 fade-in-up">The Brand</p>
+            <h2 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-[0.15em] text-metallic uppercase drop-shadow-xl fade-in-up">
+                Our Story
+            </h2>
+            <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-6 fade-in-up"></div>
+        </div>
+    </section>
+
+    <!-- ============================
+         BRAND STORY SECTION
+         ============================ -->
+    <section class="relative z-10 w-full bg-background-dark py-20 px-6 md:px-12 border-t border-white/5">
+        <!-- Atmospheric background accent -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10 fade-in-up">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4">whatshot</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">Forged In The Heat Of Competition</h2>
+            <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-6 mx-auto mb-10"></div>
+
+            <p class="text-white/60 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-8">
+                Forged was born the way all great things are &mdash; out of necessity. We were competitive paintball players who lived for the rush of tournament play, the crack of markers, the adrenaline of a breakout. But every match, the same problem: headbands that slipped, soaked through, fell apart, or just looked like afterthoughts. Nothing on the market was built for what we put it through.
+            </p>
+
+            <p class="text-white/60 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-8">
+                So we started making our own. Late nights cutting fabric, testing materials in the Texas heat, running prototypes through weekend scrimmages and national tournaments. We obsessed over the details &mdash; moisture-wicking performance, reinforced stitching that wouldn't unravel after fifty washes, designs that carried the same intensity we brought to the field. Word spread through the community. Teammates wanted them. Then rival teams. Then players we'd never even met were reaching out.
+            </p>
+
+            <p class="text-white/60 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto">
+                That's when we knew this was bigger than us. Forged wasn't just a headband &mdash; it was a statement. A mark of the competitor who refuses to settle for generic gear. Every piece we make carries the DNA of real battlefield experience, designed by players who know what it takes to compete at the highest level. This is gear forged for warriors.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================
+         VALUES SECTION
+         ============================ -->
+    <section class="relative z-10 w-full py-20 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium">What We Stand For</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-3">Our Values</h2>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-4 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+                <!-- Card 1: Quality Craftsmanship -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-8 text-center">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-4">construction</span>
+                    <h3 class="text-xl font-bold text-white mb-3">Quality Craftsmanship</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">
+                        Premium materials sourced for performance. Hand-finished details on every piece. Reinforced stitching, precision cuts, and durable construction built to outlast the competition. We don't cut corners &mdash; we forge them.
+                    </p>
+                </div>
+
+                <!-- Card 2: Battle-Tested -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-8 text-center">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-4">verified</span>
+                    <h3 class="text-xl font-bold text-white mb-3">Battle-Tested</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">
+                        Every design is tested in real tournament conditions by competitive players. From scorching outdoor fields to high-intensity indoor arenas, our gear performs where it matters most. If it can't survive the field, it doesn't leave the shop.
+                    </p>
+                </div>
+
+                <!-- Card 3: Street Culture -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-8 text-center">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-4">local_fire_department</span>
+                    <h3 class="text-xl font-bold text-white mb-3">Street Culture</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">
+                        We blend the paintball warrior ethos with street style and urban aesthetics. Forged gear isn't just for the field &mdash; it's for the parking lot, the after-party, the daily grind. Gear you're proud to wear on and off the field.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         PROCESS SECTION - HOW WE FORGE
+         ============================ -->
+    <section class="relative z-10 w-full py-20 px-6 md:px-12 border-t border-white/5">
+        <!-- Atmospheric background accent -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium">The Process</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-3">How We Forge</h2>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-4 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children">
+                <!-- Step 1: Design -->
+                <div class="relative text-center">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-5">
+                        <span class="text-primary text-2xl font-bold">01</span>
+                    </div>
+                    <span class="material-symbols-outlined text-primary/60 text-3xl mb-3">draw</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Design</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">
+                        Concepts drawn from real battle experience and street culture. Every design starts with the player in mind.
+                    </p>
+                </div>
+
+                <!-- Step 2: Source -->
+                <div class="relative text-center">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-5">
+                        <span class="text-primary text-2xl font-bold">02</span>
+                    </div>
+                    <span class="material-symbols-outlined text-primary/60 text-3xl mb-3">inventory_2</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Source</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">
+                        Premium moisture-wicking fabrics and reinforced elastic. We source only materials that meet our performance standards.
+                    </p>
+                </div>
+
+                <!-- Step 3: Craft -->
+                <div class="relative text-center">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-5">
+                        <span class="text-primary text-2xl font-bold">03</span>
+                    </div>
+                    <span class="material-symbols-outlined text-primary/60 text-3xl mb-3">precision_manufacturing</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Craft</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">
+                        Each piece is cut, sewn, and finished by hand. No mass production lines &mdash; just meticulous craftsmanship on every headband.
+                    </p>
+                </div>
+
+                <!-- Step 4: Test -->
+                <div class="relative text-center">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center mx-auto mb-5">
+                        <span class="text-primary text-2xl font-bold">04</span>
+                    </div>
+                    <span class="material-symbols-outlined text-primary/60 text-3xl mb-3">shield</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Test</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">
+                        Field-tested in real paintball conditions. If it doesn't survive tournament-level play, it goes back to the drawing board.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         COMMUNITY SECTION
+         ============================ -->
+    <section class="relative z-10 w-full py-20 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium">Community</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-3">The Forged Family</h2>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-4 mx-auto"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto text-center mb-12 fade-in-up">
+                <p class="text-white/60 text-lg md:text-xl font-light leading-relaxed mb-6">
+                    Forged is more than a brand &mdash; it's a family. From local rec players to nationally ranked tournament squads, our community is built on a shared love for the sport and the drive to compete at the highest level. We sponsor teams, support events, and show up for the culture that made us.
+                </p>
+                <p class="text-white/60 text-lg md:text-xl font-light leading-relaxed">
+                    When you wear Forged, you're repping something real. You're part of a tribe of competitors who demand more from their gear and from themselves. Every headband ties you to that lineage &mdash; the players, the fields, the battles that shaped this brand.
+                </p>
+            </div>
+
+            <!-- Community Photo Placeholders -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 stagger-children">
+                <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-white/20 text-4xl mb-2">groups</span>
+                        <p class="text-white/20 text-xs uppercase tracking-wider">Team Photo</p>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-white/20 text-4xl mb-2">sports</span>
+                        <p class="text-white/20 text-xs uppercase tracking-wider">Game Day</p>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-white/20 text-4xl mb-2">emoji_events</span>
+                        <p class="text-white/20 text-xs uppercase tracking-wider">Tournament</p>
+                    </div>
+                </div>
+                <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-white/20 text-4xl mb-2">handshake</span>
+                        <p class="text-white/20 text-xs uppercase tracking-wider">Community</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center fade-in-up">
+                <a href="contact.html" class="btn-glow inline-block bg-primary/90 hover:bg-primary text-white font-bold py-3 px-10 rounded-lg tracking-widest uppercase text-xs shadow-[0_0_20px_rgba(236,19,55,0.4)] hover:shadow-[0_0_30px_rgba(236,19,55,0.6)] transition-all duration-300 transform hover:-translate-y-1">
+                    Join The Ranks
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         FOOTER
+         ============================ -->
+    <footer class="relative z-10 w-full bg-black/30 border-t border-white/5 pt-16 pb-8 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-bold tracking-[0.2em] text-metallic uppercase mb-3">FORGED</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Forged For The Field. Premium custom paintball headbands for the modern warrior.</p>
+                </div>
+
+                <!-- Shop Links -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="shop.html" class="text-white/40 hover:text-primary text-sm transition-colors">All Products</a></li>
+                        <li><a href="shop.html#headbands" class="text-white/40 hover:text-primary text-sm transition-colors">Headbands</a></li>
+                        <li><a href="shop.html#accessories" class="text-white/40 hover:text-primary text-sm transition-colors">Accessories</a></li>
+                        <li><a href="drops.html" class="text-white/40 hover:text-primary text-sm transition-colors">Limited Drops</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-white/40 hover:text-primary text-sm transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-white/40 hover:text-primary text-sm transition-colors">Contact</a></li>
+                        <li><a href="contact.html#faq" class="text-white/40 hover:text-primary text-sm transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Stay Posted</h4>
+                    <p class="text-white/40 text-sm mb-3">Get drop alerts and exclusive deals.</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Email" class="newsletter-input flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm placeholder-white/30 focus:border-primary/50"/>
+                        <button class="bg-primary hover:bg-primary/90 text-white font-bold px-4 py-2 rounded-lg text-xs tracking-wider uppercase transition-colors">Go</button>
+                    </div>
+                    <!-- Social Icons -->
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/30 text-xs">&copy; 2026 Forged. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Terms of Service</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Decorative Elements -->
+    <div class="side-decor side-decor-left">
+        <div class="w-[1px] h-24 bg-white/10"></div>
+        <span class="text-xs text-white/20" style="writing-mode: vertical-rl; letter-spacing: 0.2em;">FORGED 2026</span>
+    </div>
+    <div class="side-decor side-decor-right">
+        <div class="w-1 h-1 bg-primary rounded-full"></div>
+        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+    </div>
+
+    <!-- Snipcart -->
+    <div hidden id="snipcart" data-api-key="YOUR_API_KEY" data-config-modal-style="side"></div>
+    <script async src="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Warrior Series - Red Splatter | FORGED</title>
+    <meta name="description" content="Warrior Series - Red Splatter premium custom paintball headband. Moisture-wicking, battle-tested, handcrafted by Forged."/>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1337",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <!-- Snipcart CSS -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css"/>
+</head>
+<body class="font-display bg-background-dark text-white overflow-x-hidden antialiased">
+
+    <!-- ============================
+         PAINT SPLATTER PARTICLES
+         ============================ -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-10">
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+        <div class="paint-splatter"></div>
+    </div>
+
+    <!-- ============================
+         HEADER / NAV
+         ============================ -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 w-full px-6 py-4 md:px-12 flex items-center justify-between transition-all duration-300">
+        <!-- Logo -->
+        <a href="index.html" class="flex flex-col items-start">
+            <h1 class="text-2xl md:text-3xl font-bold tracking-[0.2em] text-metallic uppercase">FORGED</h1>
+            <div class="h-[1px] w-16 bg-gradient-to-r from-primary to-transparent mt-1"></div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a href="shop.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Shop</a>
+            <a href="drops.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Drops</a>
+            <a href="about.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">About</a>
+            <a href="contact.html" class="text-sm tracking-widest uppercase text-white/70 hover:text-primary transition-colors duration-300">Contact</a>
+        </nav>
+
+        <!-- Cart + Mobile Toggle -->
+        <div class="flex items-center gap-4">
+            <!-- Cart Button -->
+            <button class="snipcart-checkout relative group flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-300">
+                <span class="material-symbols-outlined text-white text-2xl group-hover:text-primary transition-colors duration-300">shopping_bag</span>
+                <span id="cart-count" class="snipcart-items-count absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-5 h-5 rounded-full items-center justify-center hidden">0</span>
+            </button>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden group flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-300">
+                <span class="material-symbols-outlined text-white text-3xl group-hover:text-primary transition-colors duration-300">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-background-dark/98 backdrop-blur-lg flex flex-col items-center justify-center gap-8">
+        <button id="menu-close" class="absolute top-6 right-6">
+            <span class="material-symbols-outlined text-white text-3xl hover:text-primary transition-colors">close</span>
+        </button>
+        <a href="index.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Home</a>
+        <a href="shop.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Shop</a>
+        <a href="drops.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Drops</a>
+        <a href="about.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">About</a>
+        <a href="contact.html" class="text-2xl tracking-[0.3em] uppercase text-white hover:text-primary transition-colors">Contact</a>
+    </div>
+
+    <!-- ============================
+         BREADCRUMB
+         ============================ -->
+    <div class="relative z-10 pt-24 pb-4 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <nav class="flex items-center gap-2 text-sm text-white/40">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                <a href="shop.html" class="hover:text-primary transition-colors">Shop</a>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                <span class="text-white/70">Warrior Series - Red Splatter</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================
+         PRODUCT DETAIL
+         ============================ -->
+    <section class="relative z-10 w-full bg-background-dark py-8 md:py-16 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+
+                <!-- Left Column: Image Gallery -->
+                <div class="fade-in-up">
+                    <!-- Main Image -->
+                    <div class="relative aspect-square rounded-xl overflow-hidden bg-neutral-900 border border-white/10 mb-4">
+                        <img id="main-product-image"
+                             src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&q=80"
+                             alt="Warrior Series - Red Splatter Headband - Main View"
+                             class="w-full h-full object-cover transition-opacity duration-300"/>
+                    </div>
+
+                    <!-- Thumbnail Strip -->
+                    <div class="grid grid-cols-4 gap-3">
+                        <button class="gallery-thumb active aspect-square rounded-lg overflow-hidden bg-neutral-900"
+                                onclick="changeImage(this, 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&q=80')">
+                            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=200&q=80"
+                                 alt="Headband front view" class="w-full h-full object-cover"/>
+                        </button>
+                        <button class="gallery-thumb aspect-square rounded-lg overflow-hidden bg-neutral-900"
+                                onclick="changeImage(this, 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80')">
+                            <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=200&q=80"
+                                 alt="Headband detail view" class="w-full h-full object-cover"/>
+                        </button>
+                        <button class="gallery-thumb aspect-square rounded-lg overflow-hidden bg-neutral-900"
+                                onclick="changeImage(this, 'https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=800&q=80')">
+                            <img src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=200&q=80"
+                                 alt="Headband lifestyle view" class="w-full h-full object-cover"/>
+                        </button>
+                        <button class="gallery-thumb aspect-square rounded-lg overflow-hidden bg-neutral-900"
+                                onclick="changeImage(this, 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80')">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=200&q=80"
+                                 alt="Headband action shot" class="w-full h-full object-cover"/>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Product Info -->
+                <div class="fade-in-up">
+                    <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium">Warrior Series</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mt-2">Warrior Series - Red Splatter</h2>
+                    <p class="text-primary text-2xl md:text-3xl font-bold mt-4">$29.99</p>
+
+                    <p class="text-white/60 text-base leading-relaxed mt-6">
+                        Dominate the field with the Warrior Series Red Splatter headband. Engineered for peak performance with moisture-wicking fabric, a secure non-slip grip, and bold battle-ready aesthetics. Each headband is handcrafted with reinforced stitching for durability that lasts through every match.
+                    </p>
+
+                    <!-- Size Selector -->
+                    <div class="mt-8">
+                        <h3 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-3">Size</h3>
+                        <div class="flex flex-wrap gap-3" id="size-selector">
+                            <button class="size-btn px-5 py-2 rounded-full border border-white/20 text-sm font-medium text-white/70 hover:border-primary hover:text-primary transition-all duration-300"
+                                    onclick="selectSize(this, 'S')" data-size="S">S</button>
+                            <button class="size-btn px-5 py-2 rounded-full border border-primary bg-primary/10 text-sm font-medium text-primary transition-all duration-300 active"
+                                    onclick="selectSize(this, 'M')" data-size="M">M</button>
+                            <button class="size-btn px-5 py-2 rounded-full border border-white/20 text-sm font-medium text-white/70 hover:border-primary hover:text-primary transition-all duration-300"
+                                    onclick="selectSize(this, 'L')" data-size="L">L</button>
+                            <button class="size-btn px-5 py-2 rounded-full border border-white/20 text-sm font-medium text-white/70 hover:border-primary hover:text-primary transition-all duration-300"
+                                    onclick="selectSize(this, 'XL')" data-size="XL">XL</button>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart -->
+                    <div class="mt-8">
+                        <button class="snipcart-add-item btn-glow bg-primary hover:bg-primary/90 text-white font-bold py-4 px-10 rounded-lg tracking-widest uppercase text-sm shadow-[0_0_20px_rgba(236,19,55,0.4)] hover:shadow-[0_0_30px_rgba(236,19,55,0.6)] transition-all duration-300 transform hover:-translate-y-1 w-full md:w-auto flex items-center justify-center gap-3"
+                            data-item-id="headband-warrior-red"
+                            data-item-name="Warrior Series - Red Splatter"
+                            data-item-price="29.99"
+                            data-item-url="/product-detail.html"
+                            data-item-image="/images/headband-warrior-red.jpg"
+                            data-item-description="Premium paintball headband - Red Splatter pattern"
+                            data-item-custom1-name="Size"
+                            data-item-custom1-options="S|M|L|XL">
+                            <span class="material-symbols-outlined text-xl">shopping_bag</span>
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="flex flex-wrap items-center gap-6 mt-8 pt-6 border-t border-white/10">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-lg">local_shipping</span>
+                            <span class="text-white/50 text-xs uppercase tracking-wider">Free Shipping</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-lg">verified</span>
+                            <span class="text-white/50 text-xs uppercase tracking-wider">Battle-Tested</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-lg">autorenew</span>
+                            <span class="text-white/50 text-xs uppercase tracking-wider">30-Day Returns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         DETAILS ACCORDION
+         ============================ -->
+    <section class="relative z-10 w-full bg-background-dark py-8 md:py-12 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto fade-in-up">
+            <div class="accordion-group max-w-3xl">
+
+                <!-- Accordion: Materials & Construction -->
+                <div class="border-b border-white/10">
+                    <button class="accordion-toggle w-full flex items-center justify-between py-5 text-left group" onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">construction</span>
+                            <span class="text-base font-bold text-white tracking-wide">Materials &amp; Construction</span>
+                        </div>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 group-hover:text-primary transition-colors">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pb-6 pl-9 text-white/60 text-sm leading-relaxed space-y-3">
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong class="text-white/80">Moisture-Wicking Fabric:</strong> Advanced polyester-spandex blend that pulls sweat away from the skin, keeping you cool and dry during intense matches.</li>
+                                <li><strong class="text-white/80">Reinforced Stitching:</strong> Double-lock stitching on all seams ensures your headband won't unravel, no matter how rough the game gets.</li>
+                                <li><strong class="text-white/80">Non-Slip Silicone Grip:</strong> Interior silicone grip strips keep the headband locked in place through slides, dives, and sprints.</li>
+                                <li><strong class="text-white/80">Sublimation Printing:</strong> Vibrant, full-color designs that won't crack, peel, or fade after repeated washes.</li>
+                                <li><strong class="text-white/80">Premium Elastic Band:</strong> Maintains consistent stretch and recovery for a secure, comfortable fit every time.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Sizing Guide -->
+                <div class="border-b border-white/10">
+                    <button class="accordion-toggle w-full flex items-center justify-between py-5 text-left group" onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">straighten</span>
+                            <span class="text-base font-bold text-white tracking-wide">Sizing Guide</span>
+                        </div>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 group-hover:text-primary transition-colors">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pb-6 pl-9 text-white/60 text-sm leading-relaxed">
+                            <p class="mb-4">Measure the circumference of your head about 1 inch above your eyebrows for the best fit.</p>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-sm">
+                                    <thead>
+                                        <tr class="border-b border-white/10">
+                                            <th class="py-2 pr-6 text-white/80 font-bold uppercase tracking-wider text-xs">Size</th>
+                                            <th class="py-2 pr-6 text-white/80 font-bold uppercase tracking-wider text-xs">Circumference (in)</th>
+                                            <th class="py-2 text-white/80 font-bold uppercase tracking-wider text-xs">Circumference (cm)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-white/60">
+                                        <tr class="border-b border-white/5">
+                                            <td class="py-2 pr-6 font-medium text-white/70">S</td>
+                                            <td class="py-2 pr-6">20" - 21"</td>
+                                            <td class="py-2">51 - 53 cm</td>
+                                        </tr>
+                                        <tr class="border-b border-white/5">
+                                            <td class="py-2 pr-6 font-medium text-white/70">M</td>
+                                            <td class="py-2 pr-6">21.5" - 22.5"</td>
+                                            <td class="py-2">54 - 57 cm</td>
+                                        </tr>
+                                        <tr class="border-b border-white/5">
+                                            <td class="py-2 pr-6 font-medium text-white/70">L</td>
+                                            <td class="py-2 pr-6">23" - 24"</td>
+                                            <td class="py-2">58 - 61 cm</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 pr-6 font-medium text-white/70">XL</td>
+                                            <td class="py-2 pr-6">24.5" - 25.5"</td>
+                                            <td class="py-2">62 - 65 cm</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="mt-4 text-white/40 text-xs">Tip: If you're between sizes, we recommend sizing up for a more relaxed fit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion: Care Instructions -->
+                <div class="border-b border-white/10">
+                    <button class="accordion-toggle w-full flex items-center justify-between py-5 text-left group" onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">local_laundry_service</span>
+                            <span class="text-base font-bold text-white tracking-wide">Care Instructions</span>
+                        </div>
+                        <span class="material-symbols-outlined accordion-icon text-white/50 group-hover:text-primary transition-colors">expand_more</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="pb-6 pl-9 text-white/60 text-sm leading-relaxed space-y-3">
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong class="text-white/80">Machine Washable:</strong> Cold water, gentle cycle. Turn inside out before washing to protect the print.</li>
+                                <li><strong class="text-white/80">Tumble Dry Low:</strong> Or hang dry for best results. Avoid high heat to maintain elastic integrity.</li>
+                                <li><strong class="text-white/80">Do Not Bleach:</strong> Bleach and harsh chemicals will damage the fabric and sublimation print.</li>
+                                <li><strong class="text-white/80">Do Not Iron:</strong> The sublimation print does not require ironing and direct heat may damage the design.</li>
+                                <li><strong class="text-white/80">Quick Wash Tip:</strong> After a game, rinse in cold water and hang to dry. A quick rinse extends the life of the headband between full washes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         RELATED PRODUCTS
+         ============================ -->
+    <section class="relative z-10 w-full bg-background-dark py-16 md:py-20 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 fade-in-up">
+                <span class="text-primary text-xs tracking-[0.4em] uppercase font-medium">You May Also Like</span>
+                <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight mt-3">Related Products</h2>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-transparent via-primary to-transparent mt-4 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+
+                <!-- Related Product 1 -->
+                <div class="product-card group relative overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <a href="product-detail.html" class="block">
+                        <div class="product-image relative aspect-[4/5] overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80"
+                                 alt="Shadow Ops - Midnight Black Headband"
+                                 class="w-full h-full object-cover"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-5">
+                            <span class="text-primary/80 text-xs tracking-widest uppercase mb-1 block">Shadow Ops</span>
+                            <h3 class="text-lg font-bold text-white mb-1">Shadow Ops - Midnight Black</h3>
+                            <p class="text-white/60 text-sm mb-3">$29.99</p>
+                        </div>
+                    </a>
+                    <div class="absolute bottom-5 right-5">
+                        <button class="snipcart-add-item bg-primary hover:bg-primary/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-primary/30 hover:scale-110"
+                            data-item-id="headband-shadow-midnight"
+                            data-item-name="Shadow Ops - Midnight Black"
+                            data-item-price="29.99"
+                            data-item-url="/product-detail.html"
+                            data-item-image="/images/headband-shadow-midnight.jpg"
+                            data-item-description="Premium paintball headband - Midnight Black pattern"
+                            data-item-custom1-name="Size"
+                            data-item-custom1-options="S|M|L|XL">
+                            <span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Related Product 2 -->
+                <div class="product-card group relative overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <a href="product-detail.html" class="block">
+                        <div class="product-image relative aspect-[4/5] overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?w=600&q=80"
+                                 alt="Venom Strike - Green Camo Headband"
+                                 class="w-full h-full object-cover"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="badge-limited bg-primary text-white text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded-full">Limited</span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-5">
+                            <span class="text-primary/80 text-xs tracking-widest uppercase mb-1 block">Venom Strike</span>
+                            <h3 class="text-lg font-bold text-white mb-1">Venom Strike - Green Camo</h3>
+                            <p class="text-white/60 text-sm mb-3">$34.99</p>
+                        </div>
+                    </a>
+                    <div class="absolute bottom-5 right-5">
+                        <button class="snipcart-add-item bg-primary hover:bg-primary/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-primary/30 hover:scale-110"
+                            data-item-id="headband-venom-green"
+                            data-item-name="Venom Strike - Green Camo"
+                            data-item-price="34.99"
+                            data-item-url="/product-detail.html"
+                            data-item-image="/images/headband-venom-green.jpg"
+                            data-item-description="Premium paintball headband - Green Camo pattern"
+                            data-item-custom1-name="Size"
+                            data-item-custom1-options="S|M|L|XL">
+                            <span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Related Product 3 -->
+                <div class="product-card group relative overflow-hidden rounded-xl bg-neutral-900 border border-white/10">
+                    <a href="product-detail.html" class="block">
+                        <div class="product-image relative aspect-[4/5] overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80"
+                                 alt="Iron Forge - Gunmetal Grey Headband"
+                                 class="w-full h-full object-cover"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-5">
+                            <span class="text-primary/80 text-xs tracking-widest uppercase mb-1 block">Iron Forge</span>
+                            <h3 class="text-lg font-bold text-white mb-1">Iron Forge - Gunmetal Grey</h3>
+                            <p class="text-white/60 text-sm mb-3">$29.99</p>
+                        </div>
+                    </a>
+                    <div class="absolute bottom-5 right-5">
+                        <button class="snipcart-add-item bg-primary hover:bg-primary/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-primary/30 hover:scale-110"
+                            data-item-id="headband-iron-gunmetal"
+                            data-item-name="Iron Forge - Gunmetal Grey"
+                            data-item-price="29.99"
+                            data-item-url="/product-detail.html"
+                            data-item-image="/images/headband-iron-gunmetal.jpg"
+                            data-item-description="Premium paintball headband - Gunmetal Grey pattern"
+                            data-item-custom1-name="Size"
+                            data-item-custom1-options="S|M|L|XL">
+                            <span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         FOOTER
+         ============================ -->
+    <footer class="relative z-10 w-full bg-black/30 border-t border-white/5 pt-16 pb-8 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-bold tracking-[0.2em] text-metallic uppercase mb-3">FORGED</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">Forged For The Field. Premium custom paintball headbands for the modern warrior.</p>
+                </div>
+
+                <!-- Shop Links -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="shop.html" class="text-white/40 hover:text-primary text-sm transition-colors">All Products</a></li>
+                        <li><a href="shop.html#headbands" class="text-white/40 hover:text-primary text-sm transition-colors">Headbands</a></li>
+                        <li><a href="shop.html#accessories" class="text-white/40 hover:text-primary text-sm transition-colors">Accessories</a></li>
+                        <li><a href="drops.html" class="text-white/40 hover:text-primary text-sm transition-colors">Limited Drops</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-white/40 hover:text-primary text-sm transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-white/40 hover:text-primary text-sm transition-colors">Contact</a></li>
+                        <li><a href="contact.html#faq" class="text-white/40 hover:text-primary text-sm transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-sm font-bold tracking-widest uppercase text-white/70 mb-4">Stay Posted</h4>
+                    <p class="text-white/40 text-sm mb-3">Get drop alerts and exclusive deals.</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Email" class="newsletter-input flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm placeholder-white/30 focus:border-primary/50"/>
+                        <button class="bg-primary hover:bg-primary/90 text-white font-bold px-4 py-2 rounded-lg text-xs tracking-wider uppercase transition-colors">Go</button>
+                    </div>
+                    <!-- Social Icons -->
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                        </a>
+                        <a href="#" class="text-white/30 hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/30 text-xs">&copy; 2026 Forged. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Terms of Service</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Shipping</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Decorative Elements -->
+    <div class="side-decor side-decor-left">
+        <div class="w-[1px] h-24 bg-white/10"></div>
+        <span class="text-xs text-white/20" style="writing-mode: vertical-rl; letter-spacing: 0.2em;">FORGED 2026</span>
+    </div>
+    <div class="side-decor side-decor-right">
+        <div class="w-1 h-1 bg-primary rounded-full"></div>
+        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+        <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+    </div>
+
+    <!-- Snipcart -->
+    <div hidden id="snipcart" data-api-key="YOUR_API_KEY" data-config-modal-style="side"></div>
+    <script async src="https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Product Detail Page Scripts -->
+    <script>
+        // Image Gallery: clicking a thumbnail updates the main image
+        function changeImage(thumbEl, newSrc) {
+            const mainImage = document.getElementById('main-product-image');
+            if (!mainImage) return;
+
+            // Fade transition
+            mainImage.style.opacity = '0';
+            setTimeout(function() {
+                mainImage.src = newSrc;
+                mainImage.style.opacity = '1';
+            }, 200);
+
+            // Update active thumbnail
+            document.querySelectorAll('.gallery-thumb').forEach(function(thumb) {
+                thumb.classList.remove('active');
+            });
+            thumbEl.classList.add('active');
+        }
+
+        // Size Selector
+        function selectSize(btnEl, size) {
+            document.querySelectorAll('.size-btn').forEach(function(btn) {
+                btn.classList.remove('active', 'border-primary', 'bg-primary/10', 'text-primary');
+                btn.classList.add('border-white/20', 'text-white/70');
+            });
+            btnEl.classList.add('active', 'border-primary', 'bg-primary/10', 'text-primary');
+            btnEl.classList.remove('border-white/20', 'text-white/70');
+        }
+
+        // Accordion Toggle
+        function toggleAccordion(toggleEl) {
+            const content = toggleEl.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+
+            // Close all accordions
+            document.querySelectorAll('.accordion-content').forEach(function(el) {
+                el.classList.remove('open');
+            });
+            document.querySelectorAll('.accordion-toggle').forEach(function(el) {
+                el.classList.remove('active');
+            });
+
+            // Open clicked one (if it was closed)
+            if (!isOpen) {
+                content.classList.add('open');
+                toggleEl.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
