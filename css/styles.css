@@ -33,7 +33,7 @@
 .paint-splatter::before {
     content: '';
     display: block;
-    background-color: #ec1337;
+    background-color: #c44230;
     border-radius: 50% 40% 60% 30%;
     opacity: 0.7;
 }
@@ -108,12 +108,12 @@
 .text-metallic {
     background: linear-gradient(
         to bottom,
-        #f3f3f3 0%,
-        #d4d4d4 25%,
-        #b8b8b8 50%,
-        #6e6e6e 51%,
-        #a8a8a8 75%,
-        #c8c8c8 100%
+        #e8d5b8 0%,
+        #c9a96e 25%,
+        #a8894a 50%,
+        #6b5630 51%,
+        #b89a58 75%,
+        #d4b87a 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -185,13 +185,13 @@
 .hero-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(24,17,18,0.9) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(20,17,14,0.9) 100%);
 }
 
 .hero-fog {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, transparent 0%, rgba(24,17,18,0.8) 100%);
+    background: radial-gradient(circle at center, transparent 0%, rgba(20,17,14,0.8) 100%);
 }
 
 /* --- Page Banner (smaller hero for inner pages) --- */
@@ -211,7 +211,7 @@
 
 .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(236, 19, 55, 0.15);
+    box-shadow: 0 12px 40px rgba(196, 66, 48, 0.15);
 }
 
 .product-card .product-image {
@@ -226,8 +226,8 @@
 
 /* --- Limited Badge Pulse --- */
 @keyframes badge-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(236, 19, 55, 0.4); }
-    50% { box-shadow: 0 0 0 6px rgba(236, 19, 55, 0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(196, 66, 48, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(196, 66, 48, 0); }
 }
 
 .badge-limited {
@@ -236,9 +236,9 @@
 
 /* --- Filter Tab Active State --- */
 .filter-tab.active {
-    color: #fff;
+    color: #e8dcc8;
     background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(236, 19, 55, 0.5);
+    border-color: rgba(196, 66, 48, 0.5);
 }
 
 /* --- Countdown Timer --- */
@@ -324,13 +324,13 @@
 .gallery-thumb:hover,
 .gallery-thumb.active {
     opacity: 1;
-    border-color: #ec1337;
+    border-color: #c44230;
 }
 
 /* --- Newsletter Input --- */
 .newsletter-input:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(236, 19, 55, 0.3);
+    box-shadow: 0 0 0 2px rgba(196, 66, 48, 0.3);
 }
 
 /* --- Side Decorative Elements --- */
